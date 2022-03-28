@@ -9,14 +9,6 @@ export const CreateSession = ({ setRole, setConnectionList, connectionList }) =>
     const [prompt, setPrompt] = useState("")
     const [peer, setPeer] = useState(undefined)
 
-    const startSession = (setCode) => {
-        const peer = makePeer()
-        peer.on('open', (id) => {setCode(id)})
-        setPeer(peer)
-        setConnectionList([])
-    }
-
-
     useEffect(() => {
         const addConnection = (newConnection) => setConnectionList(state => [...state, newConnection])
         if(peer){
@@ -30,9 +22,14 @@ export const CreateSession = ({ setRole, setConnectionList, connectionList }) =>
 
 
     // open up a listening channel
-    useEffect(() => startSession(setCode), [])
+    useEffect(() => {
+        const peer = makePeer()
+        peer.on('open', (id) => {setCode(id)})
+        setPeer(peer)
+        setConnectionList([])
+    }, [setConnectionList])
 
-    const link = `http://localhost:3000/join/${session_code}`
+    const link = `${process.env.PUBLIC_URL}#/join/${session_code}`
 
     return(
         <div>

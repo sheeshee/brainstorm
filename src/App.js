@@ -1,5 +1,5 @@
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Routes,
   Route,
   Link,
@@ -21,7 +21,8 @@ function App() {
 
   return (
     <div className="App">
-      <Router>
+      <Router >
+      {/* <Router basename={process.env.PUBLIC_URL}> */}
         <Link to="/">Home</Link>
         <Routes>
           <Route path="join/*" element={<JoinSession setName={setName} setConnection={setConnection} setRole={setRole} />}/>
