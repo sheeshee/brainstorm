@@ -1,5 +1,4 @@
 import {
-  HashRouter as Router,
   Routes,
   Route,
   Link,
@@ -21,18 +20,22 @@ function App() {
 
   return (
     <div className="App">
-      <Router >
-      {/* <Router basename={process.env.PUBLIC_URL}> */}
+      <header>
         <Link to="/">Home</Link>
+      </header>
+      <main>
         <Routes>
-          <Route path="join/*" element={<JoinSession setName={setName} setConnection={setConnection} setRole={setRole} />}/>
-          <Route path="new" element={<CreateSession setRole={setRole} connectionList={connectionList} setConnectionList={setConnectionList}/>}/>
-          <Route path="session/:session/*" element={<ActiveSession name={name} connection={connection} role={role} connectionList={connectionList} />}/>
-          <Route path="session" element={<Navigate to="/" />}/>
-          <Route path="" element={<Landing />}/>
-          <Route path="*" element={<h1>404</h1>}/>
+          <Route path="join/*" element={<JoinSession setName={setName} setConnection={setConnection} setRole={setRole} />} />
+          <Route path="new" element={<CreateSession setRole={setRole} connectionList={connectionList} setConnectionList={setConnectionList} />} />
+          <Route path="session/:session/*" element={<ActiveSession name={name} connection={connection} role={role} connectionList={connectionList} />} />
+          <Route path="session" element={<Navigate to="/" />} />
+          <Route path="" element={<Landing />} />
+          <Route path="*" element={<h1>404</h1>} />
         </Routes>
-      </Router>
+      </main>
+      <footer>
+        A web app by <a href="https://sheeshee.github.io">Sam Sheehy</a>
+      </footer>
     </div>
   );
 }

@@ -4,44 +4,44 @@ import { makePeer } from "../utils"
 
 
 export const JoinSession = ({ setName, setConnection, setRole }) => {
-    const element = <JoinForm setName={setName} setConnection={setConnection} setRole={setRole}/>
-    return (
-        <Routes>
-            <Route path=":session_id_string" element={element}/>
-            <Route path="" element={element}/>
-        </Routes>
-    )
+  const element = <JoinForm setName={setName} setConnection={setConnection} setRole={setRole} />
+  return (
+    <Routes>
+      <Route path=":session_id_string" element={element} />
+      <Route path="" element={element} />
+    </Routes>
+  )
 }
 
+
 const JoinForm = ({ setName, setConnection, setRole }) => {
-    const { session_id_string } = useParams();
-    const [ session, setSession] = useState(session_id_string ? session_id_string : "")
-    const [ enableNavigate, setEnableNavigate ] = useState(false);
-    const [ localName, setLocalName ] = useState("")
-    const [ peer, setPeer ] = useState()
+  const { session_id_string } = useParams();
+  const [session, setSession] = useState(session_id_string ? session_id_string : "")
+  const [enableNavigate, setEnableNavigate] = useState(false);
+  const [localName, setLocalName] = useState("")
+  const [peer, setPeer] = useState()
 
-    useEffect(() => setPeer(makePeer()), [])
+  useEffect(() => setPeer(makePeer()), [])
 
-    const connect = (session, name) => {
-        const connection = peer.connect(session, {metadata: {name: name}})
-        connection.on('open', () => {setEnableNavigate(true)})
-        setConnection(connection)
-        setRole("guest")
-        setName(localName)
-    }
+  const connect = (session, name) => {
+    const connection = peer.connect(session, { metadata: { name: name } })
+    connection.on('open', () => { setEnableNavigate(true) })
+    setConnection(connection)
+    setRole("guest")
+    setName(localName)
+  }
 
-    return (
-        <div>
-            <h1>Join Session</h1>
-            <p>Session Code:</p>
-            <input type="text" value={session} onChange={(e) => setSession(e.target.value)}/>
-            <p>Name:</p>
-            <input type="text" onChange={(e) => setLocalName(e.target.value)}/>
-            <p></p>
-            <button onClick={() => connect(session, localName)}>Join</button>
-            { enableNavigate &&
-                <Navigate to={`/session/${session}`}  />}
-        </div>
-    )
+  return (
+    <div>
+      <h1>Join Session</h1>
+      <p>Session Code:</p>
+      <input type="text" value={session} onChange={(e) => setSession(e.target.value)} />
+      <p>Name:</p>
+      <input type="text" onChange={(e) => setLocalName(e.target.value)} />
+      <p></p>
+      <button onClick={() => connect(session, localName)}>Join</button>
+      {enableNavigate && <Navigate to={`/session/${session}`} />}
+    </div>
+  )
 
 }
