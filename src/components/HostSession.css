@@ -1,0 +1,28 @@
+h1 {
+    background-color: white;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+ul, li {
+    list-style: none;
+}
+
+ul {
+    margin: 0 auto;
+    height: 66vh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 150px;
+    overflow-y: auto;
+}
+
+li {
+    margin: 2px;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -10,6 +10,7 @@ import { CreateSession } from "./components/CreateSession";
 import { ActiveSession } from "./components/ActiveSession";
 import { JoinSession } from "./components/JoinSession";
 import { useState } from "react";
+import "./App.css"
 
 function App() {
   const [connection, setConnection] = useState(undefined);
@@ -17,11 +18,10 @@ function App() {
   const [name, setName] = useState('')
   const [connectionList, setConnectionList] = useState([]);
 
-
   return (
     <div className="App">
       <header>
-        <Link to="/">Home</Link>
+        <Link to="/">Brainstorm</Link>
       </header>
       <main>
         <Routes>
@@ -34,7 +34,11 @@ function App() {
         </Routes>
       </main>
       <footer>
-        A web app by <a href="https://sheeshee.github.io">Sam Sheehy</a>
+        <div>
+          <p>
+            A web app by <a href="https://sheeshee.github.io">Sam Sheehy</a>
+          </p>
+        </div>
       </footer>
     </div>
   );

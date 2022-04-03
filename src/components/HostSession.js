@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, Route, Routes, useLocation } from "react-router-dom"
+import "./HostSession.css"
 
 
 export const HostApp = ({ connectionList, prompt, setResults }) => {
@@ -101,7 +102,7 @@ const Spotlight = ({ connectionList, votes, submissions, progress, setProgress, 
       <VoteCounter votes={votes} expected_votes={connectionList.length} submission={submissions[progress]} />
       {onFinal ?
         <Link to="../results" onClick={() => emitResults(votes)}>Finish</Link>
-        : <button onClick={() => { setProgress(progress + 1) }}>Next</button>}
+        : <div onClick={() => { setProgress(progress + 1) }}>Next</div>}
     </div>
   )
 }

@@ -1,0 +1,40 @@
+.start-button {
+    padding-bottom: 20px;
+}
+
+main p, .guest-list{
+    /* width: 50%; */
+    margin: 0 auto;
+    background-color: white;
+    padding: 15px;;
+}
+
+.guest-list {
+    margin: 10px auto;
+    padding: 5px;
+    padding-bottom: 10px;
+}
+
+.guest-list h2 {
+    margin: 5px auto;
+
+}
+
+h2:not(.guest-list h2) {
+    background-color: white;
+    width: fit-content;
+    margin: 10px auto;
+}
+
+input {
+    margin: 10px auto;
+    width: 60%;
+    font-size: 25px;
+}
+
+ul, li {
+    list-style: none;
+    width: min-content;
+    margin: 0 auto;
+    padding: 0;
+}

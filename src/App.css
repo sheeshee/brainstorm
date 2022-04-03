@@ -1,0 +1,68 @@
+body {
+    background-image: url("/public/patternpad.svg");
+}
+
+#root {
+    height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: left;
+    color: black;
+    border-bottom: 1px black solid;
+}
+
+header a {
+    padding: 10px;
+    font-size: large;
+    color: black;
+    text-decoration: none;
+}
+
+main {
+    text-align: center;
+    margin: 20px auto;
+}
+
+
+footer, footer a {
+    background-color: #3a86ff;
+    text-align: center;
+    color: white;
+}
+
+footer p {
+    margin: 0;
+    font-size: xx-small;
+    padding: 40px;
+}
+
+.App {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1;
+    grid-template-rows: min-content auto max-content;
+    height: 100%;
+}
+
+.my-button {
+    max-width: 100px;
+    margin: 10px auto;
+    padding: 20px 50px;
+    border: solid white 1px;
+    background-color: #ff006e;
+    box-shadow: 5px 8px #ffbe0b;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+}
+
+.my-button a, .my-button div {
+    color: white;
+    text-decoration: none;
+
+}

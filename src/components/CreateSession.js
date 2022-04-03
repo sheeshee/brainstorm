@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { makePeer } from "../utils";
+import "./CreateSession.css"
 
 
 export const CreateSession = ({ setRole, setConnectionList, connectionList }) => {
@@ -40,11 +41,15 @@ export const CreateSession = ({ setRole, setConnectionList, connectionList }) =>
 
 const JoinedGuests = ({ connections }) => {
   return (
-    <div>
+    <div className="guest-list">
       <h2>Joined Guests</h2>
+      {connections.length > 0 ?
       <ul>
         {connections.map((conn, i) => <li key={i}>{conn.metadata.name}</li>)}
       </ul>
+      :
+      <p>No one here yet...</p>
+      }
     </div>
   )
 }
@@ -74,7 +79,7 @@ const StartButton = ({ connectionList, prompt, sessionId, setRole }) => {
   }
 
   return (
-    <div>
+    <div className="my-button start-button">
       {prompt ?
         <Link to={`/session/${sessionId}`}
           state={{
