@@ -107,15 +107,20 @@ const ShareCodeHelper = ({ session_code }) => {
   const link = `${process.env.PUBLIC_URL}#/join/${session_code}`
 
   return (
-    <div>
-      <p>
-        Have your guest go to {process.env.PUBLIC_URL}, click "Join Session",
-        then enter the code below:
-      </p>
-      <div>{session_code}</div>
-      <p>
-        or share this link: <a href={link}>{link}</a>
-      </p>
+    <div>{
+      session_code === undefined
+        ? <p>Getting session code...</p>
+        : <>
+          <p>
+            Have your guest go to {process.env.PUBLIC_URL}, click "Join Session",
+            then enter the code below:
+          </p>
+          <div>{session_code}</div>
+          <p>
+            or share this link: <a href={link}>{link}</a>
+          </p>
+        </>
+      }
     </div>
   )
 }
