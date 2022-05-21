@@ -41,7 +41,7 @@ const SubmissionViewer = ({ submissions, prompt }) => {
   return (
     <div>
       <h1>{prompt}</h1>
-      <ul>
+      <ul className="ideas">
         {submissions.map((submission, i) => <li key={i}>{submission.text}</li>)}
       </ul>
       <Link to="review" state={{ ...state, submissions, prompt }}>Start Review</Link>

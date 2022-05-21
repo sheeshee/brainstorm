@@ -8,7 +8,7 @@ ul, li {
     list-style: none;
 }
 
-ul {
+ul.ideas {
     margin: 0 auto;
     height: 66vh;
     display: grid;
@@ -17,7 +17,7 @@ ul {
     overflow-y: auto;
 }
 
-li {
+ul.ideas li {
     margin: 2px;
     border: 1px solid black;
     border-radius: 5px;
