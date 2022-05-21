@@ -1,12 +1,11 @@
-import { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
-import { makePeer } from "../utils";
-import "./CreateSession.css"
-
+import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { makePeer } from '../utils'
+import './CreateSession.css'
 
 export const CreateSession = ({ setRole, setConnectionList, connectionList }) => {
-  const [session_code, setCode] = useState(undefined)
-  const [prompt, setPrompt] = useState("")
+  const [sessionCode, setCode] = useState(undefined)
+  const [prompt, setPrompt] = useState('')
   const [peer, setPeer] = useState(undefined)
 
   useEffect(() => {
@@ -30,30 +29,27 @@ export const CreateSession = ({ setRole, setConnectionList, connectionList }) =>
   return (
     <div>
       <h1>New Session</h1>
-      <ShareCodeHelper session_code={session_code}/>
+      <ShareCodeHelper sessionCode={sessionCode}/>
       <JoinedGuests connections={connectionList} />
       <PromptInput setPrompt={setPrompt} />
-      <StartButton connectionList={connectionList} prompt={prompt} sessionId={session_code} setRole={setRole} />
+      <StartButton connectionList={connectionList} prompt={prompt} sessionId={sessionCode} setRole={setRole} />
     </div>
   )
 }
-
 
 const JoinedGuests = ({ connections }) => {
   return (
     <div className="guest-list">
       <h2>Joined Guests</h2>
-      {connections.length > 0 ?
-      <ul>
+      {connections.length > 0
+        ? <ul>
         {connections.map((conn, i) => <li key={i}>{conn.metadata.name}</li>)}
       </ul>
-      :
-      <p>No one here yet...</p>
+        : <p>No one here yet...</p>
       }
     </div>
   )
 }
-
 
 const PromptInput = ({ setPrompt }) => {
   return (
@@ -65,34 +61,31 @@ const PromptInput = ({ setPrompt }) => {
   )
 }
 
-
 const StartButton = ({ connectionList, prompt, sessionId, setRole }) => {
-
   const handleClick = () => {
-    setRole("host")
+    setRole('host')
     connectionList.forEach((conn) => {
       conn.send({
-        mode: "submit",
-        prompt: prompt
+        mode: 'submit',
+        prompt
       })
     })
   }
 
   return (
     <div className="my-button start-button">
-      {prompt ?
-        <Link to={`/session/${sessionId}`}
+      {prompt
+        ? <Link to={`/session/${sessionId}`}
           state={{
-            prompt: prompt,
-            role: "host"
+            prompt,
+            role: 'host'
           }}
           onClick={handleClick}
         >
           Start Session
         </Link>
-        :
-        <div onClick={
-          () => alert("You need to enter a prompt first")
+        : <div onClick={
+          () => alert('You need to enter a prompt first')
         }>
           Start Session
         </div>
@@ -101,21 +94,19 @@ const StartButton = ({ connectionList, prompt, sessionId, setRole }) => {
   )
 }
 
-
-const ShareCodeHelper = ({ session_code }) => {
-
-  const link = `${process.env.PUBLIC_URL}#/join/${session_code}`
+const ShareCodeHelper = ({ sessionCode }) => {
+  const link = `${process.env.PUBLIC_URL}#/join/${sessionCode}`
 
   return (
     <div>{
-      session_code === undefined
+      sessionCode === undefined
         ? <p>Getting session code...</p>
         : <>
           <p>
-            Have your guest go to {process.env.PUBLIC_URL}, click "Join Session",
+            Have your guest go to {process.env.PUBLIC_URL}, click &quotJoin Session&quot,
             then enter the code below:
           </p>
-          <div>{session_code}</div>
+          <div>{sessionCode}</div>
           <p>
             or share this link: <a href={link}>{link}</a>
           </p>

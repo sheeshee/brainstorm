@@ -1,34 +1,32 @@
-import { useEffect, useState } from "react"
-import { useParams, Routes, Route, Navigate } from "react-router-dom"
-import { makePeer } from "../utils"
-import "./JoinSession.css"
-
+import { useEffect, useState } from 'react'
+import { useParams, Routes, Route, Navigate } from 'react-router-dom'
+import { makePeer } from '../utils'
+import './JoinSession.css'
 
 export const JoinSession = ({ setName, setConnection, setRole }) => {
   const element = <JoinForm setName={setName} setConnection={setConnection} setRole={setRole} />
   return (
     <Routes>
-      <Route path=":session_id_string" element={element} />
+      <Route path=":sessionIdString" element={element} />
       <Route path="" element={element} />
     </Routes>
   )
 }
 
-
 const JoinForm = ({ setName, setConnection, setRole }) => {
-  const { session_id_string } = useParams();
-  const [session, setSession] = useState(session_id_string ? session_id_string : "")
-  const [enableNavigate, setEnableNavigate] = useState(false);
-  const [localName, setLocalName] = useState("")
+  const { sessionIdString } = useParams()
+  const [session, setSession] = useState(sessionIdString || '')
+  const [enableNavigate, setEnableNavigate] = useState(false)
+  const [localName, setLocalName] = useState('')
   const [peer, setPeer] = useState()
 
   useEffect(() => setPeer(makePeer()), [])
 
   const connect = (session, name) => {
-    const connection = peer.connect(session, { metadata: { name: name } })
+    const connection = peer.connect(session, { metadata: { name } })
     connection.on('open', () => { setEnableNavigate(true) })
     setConnection(connection)
-    setRole("guest")
+    setRole('guest')
     setName(localName)
   }
 
@@ -43,5 +41,4 @@ const JoinForm = ({ setName, setConnection, setRole }) => {
       {enableNavigate && <Navigate to={`/session/${session}`} />}
     </div>
   )
-
 }

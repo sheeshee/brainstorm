@@ -1,7 +1,7 @@
-import {render, screen} from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 
-import {CreateSession} from './CreateSession'
-import {makePeer} from '../utils'
+import { CreateSession } from './CreateSession'
+import { makePeer } from '../utils'
 
 jest.mock('../utils')
 

@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react"
-import { Navigate } from "react-router-dom"
-
+import { useEffect, useState } from 'react'
+import { Navigate } from 'react-router-dom'
 
 export const GuestApp = ({ name, connection, setResults }) => {
-  const [prompt, setPrompt] = useState("")
-  const [mode, setMode] = useState("wait")
+  const [prompt, setPrompt] = useState('')
+  const [mode, setMode] = useState('wait')
   const [submission, setSubmission] = useState({})
 
   useEffect(() => connection.on('data', (data) => {
@@ -21,15 +20,15 @@ export const GuestApp = ({ name, connection, setResults }) => {
     }
   }), [connection, setResults])
 
-  var applet;
+  let applet
   switch (mode) {
-    case "review":
+    case 'review':
       applet = <Voter submission={submission} connection={connection} />
       break
-    case "submit":
+    case 'submit':
       applet = <Submitter name={name} connection={connection} />
       break
-    case "results":
+    case 'results':
       applet = <Navigate to="../results" />
       break
     default:
@@ -45,7 +44,6 @@ export const GuestApp = ({ name, connection, setResults }) => {
   )
 }
 
-
 const Voter = ({ submission, connection }) => {
   const [hasVoted, setHasVoted] = useState(false)
 
@@ -54,9 +52,9 @@ const Voter = ({ submission, connection }) => {
   const sendVote = (vote) => {
     setHasVoted(true)
     connection.send({
-      type: "vote",
-      vote: vote,
-      submission: submission
+      type: 'vote',
+      vote,
+      submission
     })
   }
 
@@ -66,10 +64,9 @@ const Voter = ({ submission, connection }) => {
   return (
     <div>
       <p>{submission.text}</p>
-      {hasVoted ?
-        <p>Submitted</p>
-        :
-        <div>
+      {hasVoted
+        ? <p>Submitted</p>
+        : <div>
           <button onClick={handleLike}>I like it</button>
           <button onClick={handleDislike}>Pass</button>
         </div>
@@ -78,19 +75,17 @@ const Voter = ({ submission, connection }) => {
   )
 }
 
-
 const Submitter = ({ name, connection }) => {
-
-  const [text, setText] = useState("")
+  const [text, setText] = useState('')
 
   const handleSubmit = (e) => {
     e.preventDefault()
     connection.send({
-      type: "submission",
+      type: 'submission',
       submitted_by: name,
-      text: text
+      text
     })
-    setText("")
+    setText('')
   }
 
   return (

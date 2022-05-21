@@ -2,21 +2,21 @@ import {
   Routes,
   Route,
   Link,
-  Navigate,
-} from "react-router-dom";
+  Navigate
+} from 'react-router-dom'
 
-import { Landing } from "./components/Landing";
-import { CreateSession } from "./components/CreateSession";
-import { ActiveSession } from "./components/ActiveSession";
-import { JoinSession } from "./components/JoinSession";
-import { useState } from "react";
-import "./App.css"
+import { Landing } from './components/Landing'
+import { CreateSession } from './components/CreateSession'
+import { ActiveSession } from './components/ActiveSession'
+import { JoinSession } from './components/JoinSession'
+import { useState } from 'react'
+import './App.css'
 
-function App() {
-  const [connection, setConnection] = useState(undefined);
-  const [role, setRole] = useState('');
+function App () {
+  const [connection, setConnection] = useState(undefined)
+  const [role, setRole] = useState('')
   const [name, setName] = useState('')
-  const [connectionList, setConnectionList] = useState([]);
+  const [connectionList, setConnectionList] = useState([])
 
   return (
     <div className="App">
@@ -41,7 +41,7 @@ function App() {
         </div>
       </footer>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
