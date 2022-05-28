@@ -103,7 +103,7 @@ const ShareCodeHelper = ({ sessionCode }) => {
         ? <p>Getting session code...</p>
         : <>
           <p>
-            Have your guest go to {process.env.PUBLIC_URL}, click &quotJoin Session&quot,
+            Have your guest go to {process.env.PUBLIC_URL}, click &quot;Join Session&quot;,
             then enter the code below:
           </p>
           <div>{sessionCode}</div>
