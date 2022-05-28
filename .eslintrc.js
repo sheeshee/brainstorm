@@ -27,5 +27,6 @@ module.exports = {
   },
   rules: {
     'react/prop-types': 1
-  }
+  },
+  ignorePatterns: ['build/']
 }
