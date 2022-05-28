@@ -8,7 +8,7 @@ export const ActiveSession = ({ name, connection, connectionList, role }) => {
   const [results, setResults] = useState([])
 
   if (role !== 'guest' && role !== 'host') {
-    console.error(`Unknown role: ${role}`)
+    console.error(`Unknown role: "${role}"`)
     return <div>Unknown Role Error</div>
   }
 
