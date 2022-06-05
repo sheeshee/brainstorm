@@ -9,6 +9,7 @@ import { Landing } from './components/Landing'
 import { CreateSession } from './components/CreateSession'
 import { ActiveSession } from './components/ActiveSession'
 import { JoinSession } from './components/JoinSession'
+import { HelpPage } from './components/HelpPage'
 import { useState } from 'react'
 import './App.css'
 
@@ -22,6 +23,7 @@ function App () {
     <div className="App">
       <header>
         <Link to="/">Brainstorm</Link>
+        <Link to="help" className="link">Help</Link>
       </header>
       <main>
         <Routes>
@@ -29,6 +31,7 @@ function App () {
           <Route path="new" element={<CreateSession setRole={setRole} connectionList={connectionList} setConnectionList={setConnectionList} />} />
           <Route path="session/:session/*" element={<ActiveSession name={name} connection={connection} role={role} connectionList={connectionList} />} />
           <Route path="session" element={<Navigate to="/" />} />
+          <Route path="help" element={<HelpPage />} />
           <Route path="" element={<Landing />} />
           <Route path="*" element={<h1>404</h1>} />
         </Routes>

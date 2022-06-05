@@ -28,7 +28,7 @@ export const CreateSession = ({ setRole, setConnectionList, connectionList }) =>
   }, [setConnectionList])
 
   return (
-    <div>
+    <div className='create-session'>
       <h1>New Session</h1>
       <ShareCodeHelper sessionCode={sessionCode}/>
       <JoinedGuests connections={connectionList} />

@@ -1,0 +1,17 @@
+.help-page {
+    text-align: left;
+    margin: 0 auto;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.help-page ol li {
+    display: list-item;
+    margin: 5px auto;
+}
+
+.help-page a {
+    text-align: center;
+}

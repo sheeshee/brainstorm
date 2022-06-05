@@ -4,7 +4,7 @@ h1 {
     margin: 0 auto;
 }
 
-ul, li {
+.create-session ul, .create-session li {
     list-style: none;
 }
 
