@@ -48,12 +48,22 @@ footer p {
     min-height: 100%;
 }
 
+header div {
+        align-self: center;
+}
+
 header .link {
-    background-color: #ff006e;
     color: white;
     padding: 2px;
-    align-self: center;
     border-radius: 3px;
-    margin: auto 10px;
+    margin: auto 5px;
 
+}
+
+header .link.help {
+    background-color: #ff006e;
+}
+
+header .link.feedback {
+    background-color: #3a86ff;
 }

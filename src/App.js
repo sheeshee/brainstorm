@@ -10,6 +10,7 @@ import { CreateSession } from './components/CreateSession'
 import { ActiveSession } from './components/ActiveSession'
 import { JoinSession } from './components/JoinSession'
 import { HelpPage } from './components/HelpPage'
+import { FeedbackPage } from './components/FeedbackPage'
 import { useState } from 'react'
 import './App.css'
 
@@ -23,7 +24,10 @@ function App () {
     <div className="App">
       <header>
         <Link to="/">Brainstorm</Link>
-        <Link to="help" className="link">Help</Link>
+        <div>
+          <Link to="feedback" className="link feedback">Give Feedback</Link>
+          <Link to="help" className="link help">Help</Link>
+        </div>
       </header>
       <main>
         <Routes>
@@ -32,6 +36,7 @@ function App () {
           <Route path="session/:session/*" element={<ActiveSession name={name} connection={connection} role={role} connectionList={connectionList} />} />
           <Route path="session" element={<Navigate to="/" />} />
           <Route path="help" element={<HelpPage />} />
+          <Route path="feedback" element={<FeedbackPage />} />
           <Route path="" element={<Landing />} />
           <Route path="*" element={<h1>404</h1>} />
         </Routes>
@@ -39,7 +44,7 @@ function App () {
       <footer>
         <div>
           <p>
-            A web app by <a href="https://sheeshee.github.io">Sam Sheehy</a>
+            A web app by <a href="https://sheeshee.github.io">Sam Sheehy</a>. Find this project on <a href="https://github.com/sheeshee/brainstorm">GitHub</a>.
           </p>
         </div>
       </footer>
