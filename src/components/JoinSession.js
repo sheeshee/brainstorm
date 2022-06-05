@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams, Routes, Route, Navigate } from 'react-router-dom'
 import { makePeer } from '../utils'
+import { Button } from './Button'
 import './JoinSession.css'
 
 export const JoinSession = ({ setName, setConnection, setRole }) => {
@@ -37,7 +38,7 @@ const JoinForm = ({ setName, setConnection, setRole }) => {
       <input type="text" value={session} onChange={(e) => setSession(e.target.value)} />
       <p>Name</p>
       <input type="text" onChange={(e) => setLocalName(e.target.value)} />
-      <div className="my-button" onClick={() => connect(session, localName)}>Join</div>
+      <Button onClick={() => connect(session, localName)} text={'Join'} />
       {enableNavigate && <Navigate to={`/session/${session}`} />}
     </div>
   )
