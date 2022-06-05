@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Navigate } from 'react-router-dom'
+import { Button } from './Button'
+import './GuestSession.css'
 
 export const GuestApp = ({ name, connection, setResults }) => {
   const [prompt, setPrompt] = useState('')
@@ -36,7 +38,7 @@ export const GuestApp = ({ name, connection, setResults }) => {
   }
 
   return (
-    <div>
+    <div className='guest-form'>
       <h2>{name}</h2>
       <h1>{prompt}</h1>
       {applet}
@@ -67,8 +69,8 @@ const Voter = ({ submission, connection }) => {
       {hasVoted
         ? <p>Submitted</p>
         : <div>
-          <button onClick={handleLike}>I like it</button>
-          <button onClick={handleDislike}>Pass</button>
+          <Button onClick={handleLike} text={'I like it'} />
+          <Button onClick={handleDislike} text={'Pass'} />
         </div>
       }
     </div>
@@ -89,9 +91,9 @@ const Submitter = ({ name, connection }) => {
   }
 
   return (
-    <div>
+    <>
       <input type="text" value={text} onChange={(e) => setText(e.target.value)} />
-      <button onClick={handleSubmit}>Submit</button>
-    </div>
+      <Button onClick={handleSubmit} text={'Submit'} />
+    </>
   )
 }

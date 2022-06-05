@@ -2,6 +2,7 @@ import { Link, Routes, Route, useParams } from 'react-router-dom'
 import { useState } from 'react'
 import { HostApp } from './HostSession'
 import { GuestApp } from './GuestSession'
+import { Button } from './Button'
 
 export const ActiveSession = ({ name, connection, connectionList, role }) => {
   const { session } = useParams()
@@ -33,7 +34,7 @@ const Results = ({ results }) => {
       <ul>
         {results.sort((a, b) => b.score - a.score).map((submission, i) => <li key={i}>{submission.text}:{submission.score}</li>)}
       </ul>
-      <Link to="/">Exit to Home</Link>
+      <Link to="/"><Button text={'Exit to Home'}/></Link>
     </div>
   )
 }

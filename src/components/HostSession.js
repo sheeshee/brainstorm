@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, Route, Routes, useLocation } from 'react-router-dom'
+import { Button } from './Button'
 import './HostSession.css'
 
 export const HostApp = ({ connectionList, prompt, setResults }) => {
@@ -44,7 +45,7 @@ const SubmissionViewer = ({ submissions, prompt }) => {
       <ul className="ideas">
         {submissions.map((submission, i) => <li key={i}>{submission.text}</li>)}
       </ul>
-      <Link to="review" state={{ ...state, submissions, prompt }}>Start Review</Link>
+      <Link to="review" state={{ ...state, submissions, prompt }}><Button text={'Start Review'}/></Link>
     </div>
   )
 }
@@ -92,10 +93,12 @@ const Spotlight = ({ connectionList, votes, submissions, progress, setProgress, 
         ? <p>This is the last one.</p>
         : <p>Up Next: {submissions[progress + 1].text}</p>}
       <p>{submissions[progress].submitted_by}, please tell us a bit more.</p>
-      <VoteCounter votes={votes} expectedVotes={connectionList.length} submission={submissions[progress]} />
+      <VoteCounter votes={votes} expected_votes={connectionList.length} submission={submissions[progress]} />
       {onFinal
-        ? <Link to="../results" onClick={() => emitResults(votes)}>Finish</Link>
-        : <div onClick={() => { setProgress(progress + 1) }}>Next</div>}
+        ? <Link to="../results" onClick={() => emitResults(votes)}>
+          <Button text={'Finish'} />
+        </Link>
+        : <Button onClick={() => { setProgress(progress + 1) }} text={'Next'} />}
     </div>
   )
 }

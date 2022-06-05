@@ -1,0 +1,17 @@
+.hot-button {
+    margin: 10px auto;
+    padding: 20px 50px;
+    border: solid white 1px;
+    background-color: #ff006e;
+    box-shadow: 5px 8px #ffbe0b;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+}
+
+.hot-button a, .hot-button div {
+    color: white;
+    text-decoration: none;
+
+}

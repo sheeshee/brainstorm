@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { makePeer } from '../utils'
+import { Button } from './Button'
 import './CreateSession.css'
 
 export const CreateSession = ({ setRole, setConnectionList, connectionList }) => {
@@ -73,22 +74,19 @@ const StartButton = ({ connectionList, prompt, sessionId, setRole }) => {
   }
 
   return (
-    <div className="my-button start-button">
+    <div className="start-button">
       {prompt
         ? <Link to={`/session/${sessionId}`}
           state={{
             prompt,
             role: 'host'
           }}
-          onClick={handleClick}
         >
-          Start Session
+        <Button text={'Start Session'} onClick={handleClick}/>
         </Link>
-        : <div onClick={
+        : <Button text={'Start Session'} onClick={
           () => alert('You need to enter a prompt first')
-        }>
-          Start Session
-        </div>
+        } />
       }
     </div>
   )
