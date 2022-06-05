@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/brainstorm/static/css/main.674c7344.css",
-    "main.js": "/brainstorm/static/js/main.b80b0fb3.js",
+    "main.css": "/brainstorm/static/css/main.0d2306f2.css",
+    "main.js": "/brainstorm/static/js/main.15b31e80.js",
     "static/js/787.1cede8a6.chunk.js": "/brainstorm/static/js/787.1cede8a6.chunk.js",
     "static/media/patternpad.svg": "/brainstorm/static/media/patternpad.ebc80031453c4af77b8d.svg",
     "index.html": "/brainstorm/index.html",
-    "main.674c7344.css.map": "/brainstorm/static/css/main.674c7344.css.map",
-    "main.b80b0fb3.js.map": "/brainstorm/static/js/main.b80b0fb3.js.map",
+    "main.0d2306f2.css.map": "/brainstorm/static/css/main.0d2306f2.css.map",
+    "main.15b31e80.js.map": "/brainstorm/static/js/main.15b31e80.js.map",
     "787.1cede8a6.chunk.js.map": "/brainstorm/static/js/787.1cede8a6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.674c7344.css",
-    "static/js/main.b80b0fb3.js"
+    "static/css/main.0d2306f2.css",
+    "static/js/main.15b31e80.js"
   ]
 }
