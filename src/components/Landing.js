@@ -7,7 +7,7 @@ export const Landing = () => {
         <div className="landing">
           <h1>Brainstorm!</h1>
           <p>
-            Read the <Link to="help">the help page</Link> for a quick primer,
+            This web app is a brainstorming aid for groups. Read the <Link to="help">the help page</Link> for a quick primer,
             then click on one of the buttons below to get started!
           </p>
           <p>
